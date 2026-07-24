@@ -12,13 +12,14 @@ from slowapi import Limiter
 from slowapi.util import get_remote_address
 from slowapi.middleware import SlowAPIMiddleware
 from secure import Secure
+from limiter import limiter
 
 
 app = FastAPI()
 
 secure_headers = Secure()
 
-limiter = Limiter(key_func=get_remote_address)
+
 app.state.limiter = limiter
 app.add_middleware(SlowAPIMiddleware)
 

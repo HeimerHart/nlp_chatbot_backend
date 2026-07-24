@@ -2,11 +2,12 @@ from fastapi import APIRouter
 from models.usermodel import UserRegister,UserLogin
 from middleware.auth_middleware import get_current_user
 from fastapi import Depends
+from limiter import limiter
 from controllers.auth_controller import (
     register_user,
     login_user
 )
-from main import limiter
+
 from fastapi import Request
 
 
