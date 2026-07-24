@@ -21,6 +21,7 @@ async def process_chat(
     context: list = []
 ):
     message = sanitize(message)
+    
     logger.info(f'User message: {message}')
 
     entities = extract_entities(message)

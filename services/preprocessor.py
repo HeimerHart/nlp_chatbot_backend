@@ -6,6 +6,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
+
+
+
 class NLPPreprocessor:
 
     def __init__(self):
@@ -81,18 +84,3 @@ class NLPPreprocessor:
 
 processor = NLPPreprocessor()
 
-result = processor.preprocess(
-    "Hello! I want to return my orders."
-)
-
-#print(result)
-
-
-queries = [
-    "refund order",
-    "track order",
-    "hello"
-]
-
-features = processor.extract_features(queries)
-#print(features)
