@@ -36,7 +36,10 @@ app.include_router(auth_router)
 # add middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+                "http://localhost:5173",      # local Vite
+        "https://nlp-chatbot-frontend.vercel.app"  
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -65,7 +68,7 @@ async def health() -> dict:
         'message':'Health'  
           }
 
-
+'''
 @app.middleware("http")
 async def add_secure_headers(request, call_next):
 
@@ -74,7 +77,7 @@ async def add_secure_headers(request, call_next):
     secure_headers.framework.fastapi(response)
 
     return response
-
+'''
 
 
 if __name__=="__main__":
