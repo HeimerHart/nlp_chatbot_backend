@@ -6,6 +6,22 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
+def download_nltk_resources():
+    resources = {
+        "corpora/stopwords": "stopwords",
+        "tokenizers/punkt": "punkt",
+        "corpora/wordnet": "wordnet",
+    }
+
+    for path, name in resources.items():
+        try:
+            nltk.data.find(path)
+        except LookupError:
+            nltk.download(name, quiet=True)
+
+
+download_nltk_resources()
+
 
 
 
